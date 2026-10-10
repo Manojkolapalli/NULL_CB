@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101114">
+    <title>NULL</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png', v=2) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" defer></script>
+    <script src="{{ url_for('static', filename='chat.js') }}" defer></script>
+  </head>
+  <body>
+    <main class="chat-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="NULL home">
+          <img class="brand-logo" src="{{ url_for('static', filename='logo.png', v=2) }}" alt="">
+          <span>NULL</span>
+        </a>
+        <span class="status"><span class="status-dot"></span> AI assistant</span>
+      </header>
+
+      <section class="conversation" aria-label="Conversation">
+        <div class="welcome" id="welcome">
+          <div class="welcome-mark" aria-hidden="true">✳</div>
+          <h1>What can I help with?</h1>
+          <p>Ask anything. Your conversation stays right here.</p>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+
+      <form class="composer" id="chat-form">
+        <label class="visually-hidden" for="message-input">Message NULL</label>
+        <textarea
+          id="message-input"
+          name="message"
+          placeholder="Message NULL..."
+          rows="1"
+          required
+        ></textarea>
+        <button class="send-button" id="send-button" type="submit" aria-label="Send message">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 19V5m-7 7 7-7 7 7" />
+          </svg>
+        </button>
+        <div class="composer-hint">Enter to send <span>·</span> Shift + Enter for a new line</div>
+      </form>
+      <p class="disclaimer">AI can make mistakes. Check important information.</p>
+    </main>
+  </body>
+</html>
